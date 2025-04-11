@@ -30,13 +30,13 @@ document.querySelector("#pause").addEventListener("click", function() {
 
 //Slow Down
 document.querySelector("#slower").addEventListener("click", function() {
-    video.playbackRate *= 0.9;
+    video.playbackRate *= 0.7;
     console.log("New speed is " + video.playbackRate);
 });
 
 //Speed Up
 document.querySelector("#faster").addEventListener("click", function() {
-    video.playbackRate /= 0.9;
+    video.playbackRate /= 0.7;
     console.log("New speed is " + video.playbackRate);
 });
 
@@ -44,20 +44,18 @@ document.querySelector("#faster").addEventListener("click", function() {
 document.querySelector("#skip").addEventListener("click", function() {
     if (video.currentTime + 10 > video.duration) {
         video.currentTime = 0;
-    } else {
-        video.currentTime += 10;
-    }
     console.log("Current location is " + video.currentTime);
+    }
 });
 
 //Mute
 document.querySelector("#mute").addEventListener("click", function() {
-    if (video.muted) {
-        video.muted = false;
+    if (video) {
+        video = false;
         this.textContent = "Mute";
 		console.log("Unmute")
     } else {
-        video.muted = true;
+        video = true;
         this.textContent = "Unmute";
 		console.log("Mute")
     }
